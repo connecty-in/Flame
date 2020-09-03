@@ -4,9 +4,10 @@ const dataRepository = require("../data/dataRepository.js");
 
 router.get('/getjitsiroomid/:studentPhone', (req,res) => {
 
-  dataRepository.executeStatement(`${req.params.studentPhone}`, function(name){
-    console.log(`Name is ${name}`);
-    res.send(`Hello Mr. ${name}`);
+  dataRepository.executeStatement(`${req.params.studentPhone}`, function(response){
+    console.log(`Name is ${response.roomKey}`);
+    // res.send(`Hello Mr. ${response.roomKey}`);
+    res.send(response);
   })
   // res.send(`Hello World ${req.params.name}`);
 });

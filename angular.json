@@ -30,6 +30,7 @@
               "src/assets/plugins/fontawesome-free/css/all.min.css"
             ],
             "scripts": [
+              "src/assets/js/external_api.js"
             ]
           },
           "configurations": {
