@@ -1,64 +1,40 @@
-<div class="next-steps my-5">
-    <h2 class="my-5 text-center">What can I do next?</h2>
-
-    <div class="row">
-      <div class="col-md-5 mb-4">
-        <h6 class="mb-3">
-          <a href="https://auth0.com/docs/connections">
-            <fa-icon [icon]="faLink"></fa-icon> Configure other identity providers
-          </a>
-        </h6>
-        <p>
-          Auth0 supports social providers as Facebook, Twitter, Instagram and
-          100+, Enterprise providers as Microsoft Office 365, Google Apps, Azure,
-          and more. You can also use any OAuth2 Authorization Server.
-        </p>
-      </div>
-
-      <div class="col-md"></div>
-
-      <div class="col-md-5 mb-4">
-        <h6 class="mb-3">
-          <a href="https://auth0.com/docs/multifactor-authentication">
-            <fa-icon [icon]="faLink"></fa-icon> Enable Multifactor Authentication
-          </a>
-        </h6>
-        <p>
-          Add an extra layer of security by enabling Multi-factor Authentication,
-          requiring your users to provide more than one piece of identifying
-          information. Push notifications, authenticator apps, SMS, and DUO
-          Security are supported.
-        </p>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-5 mb-4">
-        <h6 class="mb-3">
-          <a href="https://auth0.com/docs/anomaly-detection">
-            <fa-icon [icon]="faLink"></fa-icon> Anomaly Detection
-          </a>
-        </h6>
-        <p>
-          Auth0 can detect anomalies and stop malicious attempts to access your
-          application. Anomaly detection can alert you and your users of
-          suspicious activity, as well as block further login attempts.
-        </p>
-      </div>
-
-      <div class="col-md"></div>
-
-      <div class="col-md-5 mb-4">
-        <h6 class="mb-3">
-          <a href="https://auth0.com/docs/rules">
-            <fa-icon [icon]="faLink"></fa-icon> Learn About Rules
-          </a>
-        </h6>
-        <p>
-          Rules are JavaScript functions that execute when a user authenticates to
-          your application. They run once the authentication process is complete,
-          and you can use them to customize and extend Auth0's capabilities.
-        </p>
-      </div>
-    </div>
+<div class="hold-transition lockscreen" id="bodyframe">
+<!-- Automatic element centering -->
+<div class="lockscreen-wrapper" id="jitsiTab">
+  <div class="lockscreen-logo">
+    <a href="../../index2.html"><b>Saketha's </b>Flame</a>
   </div>
+
+  <!-- START LOCK SCREEN ITEM -->
+  <div class="lockscreen-item">
+    <!-- lockscreen image -->
+    <div class="lockscreen-image">
+      <img src="../../../assets/img/user1-128x128.jpg" alt="User Image">
+    </div>
+    <!-- /.lockscreen-image -->
+
+    <!-- lockscreen credentials (contains the form) -->
+    <form class="lockscreen-credentials">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Enter Phone Number" [(ngModel)]="studentPhone" [ngModelOptions]="{standalone: true}">
+
+        <div class="input-group-append">
+          <button (click)="getJitsiRoomId(studentPhone)" type="button" class="btn"><i class="fas fa-arrow-right text-muted"></i></button>
+        </div>
+      </div>
+    </form>
+    <!-- /.lockscreen credentials -->
+
+  </div>
+  <!-- /.lockscreen-item -->
+  <div class="help-block text-center">
+    Enter your phone number to start learning
+  </div>
+</div>
+<!-- /.center -->
+
+<!-- jQuery -->
+<script src="../../plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+</div>

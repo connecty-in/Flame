@@ -5,8 +5,16 @@ const jwt = require('express-jwt');
 const jwksRsa = require('jwks-rsa');
 const { join } = require('path');
 const authConfig = require('./auth_config.json');
+const cors = require('cors')
+const jitsiRoute = require('./src/app/routes/jitsi');
 
 const app = express();
+
+var corsOptions = {
+  origin: "http://localhost:3000"
+};
+
+app.use(cors(corsOptions))
 
 if (!authConfig.domain || !authConfig.audience) {
   throw 'Please make sure that auth_config.json is in place and populated';
@@ -14,6 +22,7 @@ if (!authConfig.domain || !authConfig.audience) {
 
 app.use(morgan('dev'));
 app.use(helmet());
+app.use('/api/jitsi', jitsiRoute)
 
 const checkJwt = jwt({
   secret: jwksRsa.expressJwtSecret({
