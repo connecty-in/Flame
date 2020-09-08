@@ -16,7 +16,7 @@ export class ApiService {
   }
 
   getRoomKeyTag(studentPhone) {
-    return this.http.get(`${baseUrl}/jitsi/getjitsiroomid/${studentPhone}`);
+    return this.http.get(`${baseUrl}/jitsi/getjitsiroomid/${studentPhone}`,  {responseType: 'text'});
   }
 
 }
