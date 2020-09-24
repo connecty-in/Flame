@@ -17,6 +17,8 @@ import { LoadingComponent } from './components/loading/loading.component';
 import { ExternalApiComponent } from './pages/external-api/external-api.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { ShsComponent } from './shs/shs.component';
+
 
 export function hljsLanguages() {
   return [{ name: 'json', func: json }];
@@ -32,7 +34,8 @@ export function hljsLanguages() {
     HeroComponent,
     HomeContentComponent,
     LoadingComponent,
-    ExternalApiComponent
+    ExternalApiComponent,
+    ShsComponent
   ],
   imports: [
     BrowserModule,

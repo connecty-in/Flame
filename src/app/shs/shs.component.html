@@ -1,0 +1,42 @@
+<div class="hold-transition lockscreen full-height" id="bodyframe">
+  <!-- Automatic element centering -->
+  <div class="lockscreen-wrapper" id="jitsiTab">
+    <div class="lockscreen-logo">
+      <a href="../../index2.html"><b>Saketha's </b>Flame</a>
+    </div>
+
+    <!-- START LOCK SCREEN ITEM -->
+    <div class="lockscreen-item">
+      <!-- lockscreen image -->
+      <div class="lockscreen-image">
+        <img src="../../../assets/img/user1-128x128.jpg" alt="User Image">
+      </div>
+      <!-- /.lockscreen-image -->
+
+      <!-- lockscreen credentials (contains the form) -->
+      <form class="lockscreen-credentials">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Enter Your School Id" [(ngModel)]="studentPhone" [ngModelOptions]="{standalone: true}">
+          <div class="input-group-append">
+            <button (click)="getJitsiRoomId(studentPhone)" type="button" class="btn"><i class="fas fa-arrow-right text-muted"></i></button>
+          </div>
+        </div>
+      </form>
+      <!-- /.lockscreen credentials -->
+
+    </div>
+    <div class="d-flex justify-content-center" id="spinner">
+    </div>
+    <!-- /.lockscreen-item -->
+    <div class="help-block text-center" id="serverResponse">
+      Enter your School Id to start learning
+    </div>
+<!--    <div id="serverResponse"></div>-->
+  </div>
+  <!-- /.center -->
+
+  <!-- jQuery -->
+  <script src="../../plugins/jquery/jquery.min.js"></script>
+  <!-- Bootstrap 4 -->
+  <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+</div>

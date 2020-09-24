@@ -1,19 +1,38 @@
-<div class="container mt-5">
-  <h1>External API</h1>
-  <p class="mb-5">
-    Ping an external API by clicking the button below. This will call the
-    external API using an access token, and the API will validate it using the
-    API's audience value.
-  </p>
+<div class="container mt-5" id="bodyframe">
+  <h1>Choose Class</h1>
+<!--  <p class="mb-5">-->
+<!--    Ping an external API by clicking the button below. This will call the-->
+<!--    external API using an access token, and the API will validate it using the-->
+<!--    API's audience value.-->
+<!--  </p>-->
 
-  <button class="btn btn-primary mb-5" (click)="pingApi()">Ping API</button>
+  <div class="result-block-container" *ngIf="roomObject">
 
-  <div class="result-block-container" *ngIf="responseJson">
-    <div class="result-block" [ngClass]="{ show: !!responseJson }">
-      <h6 class="muted">Result</h6>
-      <pre>
-        <code class="js rounded" [highlight]="responseJson"></code>
-      </pre>
+    <div class="input-group input-group-sm">
+<!--      <input type="text" class="form-control">-->
+      <select class="form-control" [(ngModel)]="selectedRoom">
+        <option *ngFor="let c of rooms" [ngValue]="c.keytag | json">Class {{c.class | json}} - {{ c.section | json}}</option>
+      </select>
+      <span class="input-group-btn">
+        <button (click)="startSession(selectedRoom)" type="button" class="btn btn-info btn-flat">Start</button>
+
+<!--        <button type="button" class="btn btn-info btn-flat">Go!</button>-->
+      </span>
     </div>
+    <div id="serverResponse"></div>
+<!--    <div class="result-block" [ngClass]="{ show: !!roomObject }">-->
+<!--&lt;!&ndash;      <h6 class="muted">{{ rooms | json }}</h6>&ndash;&gt;-->
+<!--&lt;!&ndash;      <div *ngFor="let item of rooms ">&ndash;&gt;-->
+<!--&lt;!&ndash;        {{ item.keytag | json }} - {{ item.class | json }}&ndash;&gt;-->
+<!--&lt;!&ndash;      </div>&ndash;&gt;-->
+<!--      <select class="form-control" [(ngModel)]="selectedRoom">-->
+<!--        <option *ngFor="let c of rooms" [ngValue]="c.keytag | json">Class {{c.class | json}} - {{ c.section | json}}</option>-->
+<!--      </select>-->
+
+<!--      <button (click)="startSession(selectedRoom)" type="button" class="btn btn-outline-success">Start Session</button>-->
+
+<!--    </div>-->
   </div>
+
+<!--  <button class="btn btn-primary mb-5" (click)="pingApi()">Ping API</button>-->
 </div>

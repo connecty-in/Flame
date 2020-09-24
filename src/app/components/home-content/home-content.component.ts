@@ -13,7 +13,6 @@ import '../../../assets/js/external_api';
 export class HomeContentComponent implements OnInit {
   faLink = faLink;
   studentPhone: string;
-  jitsiRoomId: Object;
 
   constructor(private api: ApiService) { }
 
@@ -23,13 +22,17 @@ export class HomeContentComponent implements OnInit {
   getJitsiRoomId(studentPhone) {
     this.api.getRoomKeyTag(studentPhone)
       .subscribe(
-        data => {
-          const parsedResponse = JSON.parse(data);
-          if (parsedResponse.error === 400) {
+        // (data: {error: number, roomKey: string }) => {
+          // const parsedResponse = JSON.parse(data);
+    data => {
+      console.log(data);
+      const parsed = JSON.parse(data);
+      console.log('Parsed Resonse ' + parsed);
+          if (parsed.error === 400) {
             console.log('Invalid Phone Number');
           } else {
-            console.log('Jitsi Room Id fetched from Database ' + parsedResponse.roomKey.toString());
-            this.initiateJitsi(parsedResponse.roomKey.toString());
+            console.log('Jitsi Room Id fetched from Database ' + parsed.roomKey.toString());
+            this.initiateJitsi(parsed.roomKey.toString());
           }
         },
         error => {
@@ -43,7 +46,7 @@ export class HomeContentComponent implements OnInit {
       roomName: roomKey,
       width: 700,
       height: 700,
-      parentNode: document.getElementById('#bodyframe').innerHTML
+      parentNode: document.querySelector('#bodyframe')
     };
     const api = new JitsiMeetExternalAPI(domain, options);
   }
